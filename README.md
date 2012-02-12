@@ -15,6 +15,7 @@ To make my development even better I will write a .bashrc script that does the f
   - Install the requirements of the project such as django, PIL, etc.
   - Create a new secret key for the project
   - Run syncdb and runserver
+  - Last line just opens the project directory in Sublime Text 2
 
 Here is the script:
 
@@ -28,13 +29,14 @@ Here is the script:
 	./manage.py new_secret &&
 	./manage.py syncdb &&
 	./manage.py runserver
+	sublime ../
 	}
 
 I will name this script mkdjangoproj and by typing:
     
     mkdjangoproj project_name
 
-I will create a new django project with my boilerplate named project_name.
+It will create a new django project with my boilerplate named project_name.
 
 This django boilerplate comes with two sample apps which will be included in the INSTALLED_APPS settings. If you would change their directory names make sure to change the names elsewhere like their urls, the project urls, the app views, and the project settings.
 
