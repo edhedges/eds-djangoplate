@@ -17,6 +17,7 @@ To make my development even better I will write a .bashrc script that does the f
   - Run syncdb and runserver
 
 Here is the script:
+
 	mkdjangoproj () {
 	mkproject --no-site-packages --prompt=$1: $1 &&
 	git init &&
