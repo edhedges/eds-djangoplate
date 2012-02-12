@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+		{% block styles %}
+			<!-- Project wide styles. -->
+			<link rel="stylesheet" href="{{ STATIC_URL }}css/styles.css">
+		{% endblock styles %}
+		{% block extra_styles %}
+		{% endblock extra_styles %}
+    <title>
+		{% block title %}
+		{% endblock title %}
+    </title>
+</head>
+<body>
+    <header>
+        {% block header %}
+    		<!-- Project wide header content. -->
+        {% endblock header %}
+    </header>
+    <div id="wrap">
+		<div id="content">
+			{% block content %}
+				<!-- 
+					Main content will go here and this will usually be different for every template that
+					inherits this one. 
+				-->
+			{% endblock content %}
+		</div>
+		<footer>
+			{% block footer %}
+				<!-- Project wide footer content. -->
+			{% endblock footer %}
+			{% block extra_footer %}
+				<!-- Project wide scripts (most likely jquery from google). -->
+			{% endblock extra_footer %}
+		</footer>
+	</div>
+</body>
+</html>
