@@ -48,4 +48,4 @@ This will then allow you to type:
 
 	pip install whateverpackagesyouwant
 
-Note: If you use this for development and want to use the .wsgi file I have put in there for when you push to production make sure to edit the file name to not be 'project.wsgi' but replace 'project' with what your projects name is as well as open and edit the necessary name issues used by the wsgi file.
+Note: CHANGE THE 'project.wsgi' to the name of the project as well as in project.py give it the same PROJECT_ID.

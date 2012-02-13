@@ -29,9 +29,9 @@ if LIVEHOST:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',       # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'xxx',                         # Or path to database file if using sqlite3.
-            'USER': 'xxx',                         # Not used with sqlite3.
-            'PASSWORD': 'xxx',                  # Not used with sqlite3.
+            'NAME': 'xxx',                              # Or path to database file if using sqlite3.
+            'USER': 'xxx',                              # Not used with sqlite3.
+            'PASSWORD': 'xxx',                          # Not used with sqlite3.
             'HOST': '',                                 # Set to empty string for localhost. Not used with sqlite3.
             'PORT': '',                                 # Set to empty string for default. Not used with sqlite3.
         }
@@ -43,7 +43,7 @@ if LIVEHOST:
     EMAIL_HOST_PASSWORD = 'xxx'
 
     #Development url conf
-    ROOT_URLCONF = 'urls.prod'
+    ROOT_URLCONF = 'urls'
 
     # Absolute filesystem path to the directory that will hold user-uploaded files.
     # Example: "/home/media/media.lawrence.com/media/"
@@ -58,24 +58,24 @@ if LIVEHOST:
     # Don't put anything in this directory yourself; store your static files
     # in apps' "static/" subdirectories and in STATICFILES_DIRS.
     # Example: "/home/media/media.lawrence.com/static/"
-    STATIC_ROOT = '/home/edhedges/webapps/static_files/'
+    STATIC_ROOT = '/home/edhedges/webapps/static/'
 
     # URL prefix for static files.
     # Example: "http://media.lawrence.com/static/"
-    STATIC_URL = 'http://edhedges.webfactional.com/static_files/'
+    STATIC_URL = 'http://www.edhedges.com/static/'
 
     # Additional locations of static files
     STATICFILES_DIRS = (
         # Put strings here, like "/home/html/static" or "C:/www/django/static".
         # Always use forward slashes, even on Windows.
         # Don't forget to use absolute paths, not relative paths.
-        '/home/edhedges/webapps/static_files/',
+        '/home/edhedges/webapps/static/',
     )
 
     # URL prefix for admin static files -- CSS, JavaScript and images.
     # Make sure to use a trailing slash.
     # Examples: "http://foo.com/static/admin/", "/static/admin/".
-    ADMIN_MEDIA_PREFIX = 'http://edhedges.webfactional.com/static_files/admin/'
+    ADMIN_MEDIA_PREFIX = 'http://www.edhedges.com/static/admin/'
 
 """
 Settings for development
@@ -203,6 +203,10 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.messages',
     'django.contrib.admin',
+    
+    #Dependency apps
+    'south',
+    'fabric',
 
     #Sample apps included
     'apps.sample_one',
