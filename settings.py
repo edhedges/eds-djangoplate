@@ -206,6 +206,7 @@ INSTALLED_APPS = (
     
     #Dependency apps
     'south',
+    'fabric',
 
     #Sample apps included
     'apps.sample_one',
