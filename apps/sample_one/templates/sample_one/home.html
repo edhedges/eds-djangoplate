@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
 <!-- Don't forget about extra_styles and extra_footer -->
+{% block extra_styles %}
+<!-- App specific styles -->
+	<link rel="stylesheet" href="{{ STATIC_URL }}sample_one/css/sample_one.css">
+{% endblock extra_styles %}
 
 {% block content %}
 	<!-- Content specific to the app home goes here -->

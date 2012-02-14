@@ -1,4 +1,3 @@
-from __future__ import with_statement
 from fabric.api import *
 
 env.hosts = ['edhedges.webfactional.com']
@@ -49,5 +48,5 @@ def migrate(app):
     """
     Migrates the specified app.
     """
-    run('python manage.py migrate')
+    run('python manage.py migrate %s' % app)
 
