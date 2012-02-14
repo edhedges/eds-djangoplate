@@ -2,6 +2,7 @@ from fabric.api import *
 
 env.hosts = ['edhedges.webfactional.com']
 env.user = 'edhedges'
+env.webapps_dir = '/home/edhegdes/webapps/'
 env.django_dir = '/home/edhedges/webapps/pyprojects/'
 env.static_dir = '/home/edhedges/webapps/static/'
 
@@ -13,7 +14,7 @@ def prepare():
     run('easy_install-2.7 pip')
     run('pip-2.7 install virtualenv')
     run('pip-2.7 install virtualenvwrapper')
-    run('mkdir -p /home/edhedges/virtualenvs')
+    run('mkdir -p %svirtualenvs/' % env.webapps_dir)
 
 def deploy(project_name):
     """

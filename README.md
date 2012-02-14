@@ -49,3 +49,16 @@ This will then allow you to type:
 	pip install whateverpackagesyouwant
 
 Note: CHANGE THE 'project.wsgi' to the name of the project as well as in project.py give it the same PROJECT_ID.
+
+Deployment Instructions:
+
+	- Run mkdjangoproj project_name
+	- Write whatever code/apps you want locally
+	- Change whatever settings you need to including installed apps and changing database settings for production
+	- If you need packages installed on live server make sure they are in requirements.txt and installed_apps in django
+	- Change 'project.wsgi' to 'project_name.wsgi'
+	- In project.py change PROJECT_ID = 'project' to be PROJECT_ID = 'project_name'
+	- On live server edit the httpd.conf to include our httpd-vhosts.conf in the conf directory of the project
+	- Make other necessary changes to httpd.conf on live server
+	- profit???
+	
