@@ -178,7 +178,7 @@ STATICFILES_FINDERS = (
 )
 
 #Set one
-SECRET_KEY = '191h_1gw1jr!$zyeqed((5)pghe62m-exv$e^!-m(q&3)ggbng'
+SECRET_KEY = ''
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
