@@ -205,8 +205,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     
     #Dependency apps
-    #'south',
-    #'fabric',
+    'south',
+    'fabric',
 
     #Sample apps included
     'apps.sample_one',
