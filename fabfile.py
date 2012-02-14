@@ -14,7 +14,6 @@ def prepare():
     run('pip install virtualenv')
     run('pip install virtualenvwrapper')
     run('mkdir -p /home/edhedges/virtualenvs')
-    with cd(env.django_dir)
 
 def deploy(project_name):
     """
@@ -31,6 +30,11 @@ def deploy(project_name):
         run('mv static/* %s' % env.static_dir)
     run(env.django_dir + 'apache2/bin/restart')
 
+def migrate_specific():
+    """
+    Migrates the specified app.
+    """
+    run('python manage.py migrate')
 
 def restart_apache():
     """
@@ -44,7 +48,7 @@ def build_migration(app):
     """
     run('python manage.py schemamigration %s'  % app)
 
-def migrate(app):
+def migrate_specific(app):
     """
     Migrates the specified app.
     """
