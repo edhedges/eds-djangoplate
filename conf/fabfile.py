@@ -23,7 +23,7 @@ def deploy(project_name):
     with cd(env.django_dir + '%s/' % project_name):
         run('git init')
         run('git pull https://edhedges@bitbucket.org/edhedges/%s.git master' % project_name)
-        run('pip-2.7 install -r requirements.txt')
+        run('pip-2.7 install -r conf/requirements.txt')
         run('python2.7 manage.py new_secret')
         run('python2.7 manage.py syncdb')
         run('mv static/* %s' % env.static_dir)
