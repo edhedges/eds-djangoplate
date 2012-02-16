@@ -51,6 +51,7 @@ def set_up():
     run('pip-2.7 install virtualenv')
     run('pip-2.7 install virtualenvwrapper')
     run('mkdir -p %s' % env.virtualenv_dir)
+    run('mkdir -p %s' % env.static_dir)
 
 def deploy():
     """
