@@ -1,6 +1,8 @@
 Eddie Hedges' Django Boilerplate
 =========
 
+This boilerplate assumes webfaction host and an install of python2.7 and mod_wsgi3.3/apache2
+
 This boilerplate was made so that I can create a development standard for myself when using django. 
 
 I tried to keep it simple while also having the flexibility that will allow me to locally develop and quickly turn around and push the project to production.
@@ -48,7 +50,13 @@ This will then allow you to type:
 
 	pip install whateverpackagesyouwant
 
-Note: CHANGE THE 'project.wsgi' to the name of the project as well as in project.py give it the same PROJECT_ID.
+Files that NEED edited before deployment aside from what is developed:
+	- settings.py
+	- requirement.txt (to add packages)
+	- project.py
+	- httpd-vhosts.conf
+	- fabfile.py
+	- httpd.conf (BE CAREFUL AND SMART)
 
 Deployment Instructions:
 
@@ -56,9 +64,8 @@ Deployment Instructions:
 	- Write whatever code/apps you want locally
 	- Change whatever settings you need to including installed apps and changing database settings for production
 	- If you need packages installed on live server make sure they are in requirements.txt and installed_apps in django
-	- Change 'project.wsgi' to 'project_name.wsgi'
 	- In project.py change PROJECT_ID = 'project' to be PROJECT_ID = 'project_name'
-	- On live server edit the httpd.conf to include our httpd-vhosts.conf in the conf directory of the project
+	- Edit the httpd.conf and replace the live server http.conf to include our httpd-vhosts.conf in the conf directory of the project
 	- Make other necessary changes to httpd.conf on live server
 	- profit???
 	

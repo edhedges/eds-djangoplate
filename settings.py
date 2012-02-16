@@ -5,6 +5,8 @@ This gets the host whether it is webfaction or just local development.
 """
 import socket, os, sys
 
+from conf.project import *
+
 def contains(str, substr):
     if str.find(substr) != -1:
         return True
@@ -62,7 +64,7 @@ if LIVEHOST:
 
     # URL prefix for static files.
     # Example: "http://media.lawrence.com/static/"
-    STATIC_URL = 'http://www.edhedges.com/static/'
+    STATIC_URL = 'http://www.edhedges.com/static/%s/' %PROJECT_ID
 
     # Additional locations of static files
     STATICFILES_DIRS = (
