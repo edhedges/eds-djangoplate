@@ -56,7 +56,7 @@ def deploy():
     Deploys the django project.
     """
     run('mkproject %s' % PROJECT_ID)
-    with cd(env.django_dir + '%s/' % PROJECT_ID):
+    with cd(env.projects_dir + '%s/' % PROJECT_ID):
         run('git init')
         run('git pull https://edhedges@bitbucket.org/edhedges/%s.git master' % PROJECT_ID)
         run('pip-2.7 install -r conf/requirements.txt')
@@ -104,7 +104,7 @@ def restart_apache():
     """
     Restarts the apache2 instance.
     """
-    run(env.django_dir + 'apache2/bin/restart')
+    run(env.projects_dir + 'apache2/bin/restart')
 
 def build_migration(app, environment=None):
     """
