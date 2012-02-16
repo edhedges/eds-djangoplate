@@ -51,14 +51,14 @@ def set_up():
     run('pip-2.7 install virtualenvwrapper')
     run('mkdir -p %s' % env.virtualenv_dir)
 
-def deploy(project_name):
+def deploy():
     """
     Deploys the django project.
     """
-    run('mkproject %s' % project_name)
-    with cd(env.django_dir + '%s/' % project_name):
+    run('mkproject %s' % PROJECT_ID)
+    with cd(env.django_dir + '%s/' % PROJECT_ID):
         run('git init')
-        run('git pull https://edhedges@bitbucket.org/edhedges/%s.git master' % project_name)
+        run('git pull https://edhedges@bitbucket.org/edhedges/%s.git master' % PROJECT_ID)
         run('pip-2.7 install -r conf/requirements.txt')
         run('python2.7 manage.py new_secret')
         run('python2.7 manage.py syncdb')
