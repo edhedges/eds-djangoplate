@@ -29,6 +29,7 @@ Here is the script:
 	chmod +x manage.py
 	./manage.py new_secret &&
 	./manage.py syncdb &&
+    ./manage.py migrate &&
 	./manage.py runserver
 	}
 
