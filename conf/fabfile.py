@@ -39,6 +39,8 @@ def run_local():
     local('python manage.py migrate')
     local('python manage.py runserver')
 
+#WRITE A FUNCTION THAT REPLACE THE httpd.conf in apache2/conf with the once in the boilerplate
+
 def set_up():
     """
     Sets up webfaction host with python2.7 directory and dependencies.
