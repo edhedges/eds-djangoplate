@@ -104,7 +104,7 @@ def restart_apache():
     """
     Restarts the apache2 instance.
     """
-    run(env.projects_dir + 'apache2/bin/restart')
+    run(env.apache_bin + '/restart')
 
 def build_migration(app, environment=None):
     """
