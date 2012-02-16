@@ -40,6 +40,7 @@ def run_local():
     local('python manage.py runserver')
 
 #WRITE A FUNCTION THAT REPLACE THE httpd.conf in apache2/conf with the once in the boilerplate
+#WRITE another function that does the .bashrc and .bash_profile things maybe
 
 def set_up():
     """
