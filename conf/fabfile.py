@@ -105,7 +105,7 @@ def restart_apache():
     run(env.django_dir + 'apache2/bin/restart')
 
 def build_migration(app, environment=None):
-    """ 
+    """
     Builds a migration for the specified app. 
     """
     if environment == 'local':
