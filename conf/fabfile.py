@@ -18,7 +18,7 @@ env.static_dir = env.webapps_dir + '/static/%s' % PROJECT_ID
 
 #Level directly under pyprojects paths
 env.apache_bin = env.projects_dir + '/apache2/bin'
-env.apache_conf = env.project_dir + '/apache2/conf'
+env.apache_conf = env.projects_dir + '/apache2/conf'
 env.virtualenv_dir = env.projects_dir + '/virtualenvs'
 env.current_project_dir = env.projects_dir + '/%s' % PROJECT_ID
 
@@ -41,14 +41,14 @@ def run_local():
     local('python manage.py migrate')
     local('python manage.py runserver')
 
-def handle_bash_files():
+def swap_bash_files():
     """
     Removes the current .bashrc and .bash_profile and replaces them with the ones from the boilerplate
     """
     with cd(env.my_dir):
         run('rm .bashrc')
         run('rm .bash_profile')
-    with cd(env.current_project_dir)
+    with cd(env.current_project_dir):
         run('mv conf/.bash_profile %s' % env.my_dir)
         run('mv conf/.bashrc %s' % env.my_dir)
 
@@ -67,7 +67,6 @@ def set_up():
     """
     Sets up webfaction host with python2.7 directory and dependencies.
     """
-    handle_bash_files()
     run('mkdir -p %s' % env.host_python_dir)
     run('easy_install-2.7 pip')
     run('pip-2.7 install virtualenv')
@@ -80,7 +79,7 @@ def deploy():
     Deploys the django project.
     """
     run('mkproject %s' % PROJECT_ID)
-    with cd(env.projects_dir + '%s/' % PROJECT_ID):
+    with cd(env.current_project_dir):
         run('git init')
         run('git pull https://edhedges@bitbucket.org/edhedges/%s.git master' % PROJECT_ID)
         run('pip-2.7 install -r conf/requirements.txt')
