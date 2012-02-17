@@ -41,17 +41,6 @@ def run_local():
     local('python manage.py migrate')
     local('python manage.py runserver')
 
-def swap_bash_files():
-    """
-    Removes the current .bashrc and .bash_profile and replaces them with the ones from the boilerplate
-    """
-    with cd(env.my_dir):
-        run('rm .bashrc')
-        run('rm .bash_profile')
-    with cd(env.current_project_dir):
-        run('mv conf/.bash_profile %s' % env.my_dir)
-        run('mv conf/.bashrc %s' % env.my_dir)
-
 def replace_httpdconf():
     """
     Use this with caution it replaces the default httpd.conf file given by webfaction with the projects httpd.conf.
