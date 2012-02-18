@@ -211,9 +211,9 @@ INSTALLED_APPS = (
     'fabric',
 
     #Sample apps included
-    'apps.sample_one',
-    'apps.sample_two',
-    'apps.startup',
+    'sample_one',
+    'sample_two',
+    'startup',
 
     #Add more apps when you write them!
 )
