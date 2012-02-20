@@ -41,6 +41,12 @@ def run_local():
     local('python manage.py migrate')
     local('python manage.py runserver')
 
+def run_local_smtp():
+    """
+    Runs a local smtp server for email testing.
+    """
+    local('python -m smtpd -n -c DebuggingServer localhost:1025')
+
 def replace_httpdconf():
     """
     Use this with caution it replaces the default httpd.conf file given by webfaction with the projects httpd.conf.

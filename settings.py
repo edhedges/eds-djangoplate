@@ -98,6 +98,10 @@ if not LIVEHOST:
         }
     }
 
+    #Local email settings for local python smtp dummy server
+    EMAIL_HOST = 'localhost'
+    EMAIL_PORT = 1025
+
     #Development url conf
     ROOT_URLCONF = 'urls'
 
