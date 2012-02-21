@@ -101,6 +101,7 @@ def destroy_project():
     run('rm -rf %s' % env.current_project_dir)
     run('rm -rf %s' % env.specific_virtualenv_dir)
     run('rm -rf %s' % env.static_dir)
+    run('mkdir %s' % env.static_dir)
  
 def rebuild_all():
     """
