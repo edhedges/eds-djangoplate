@@ -74,6 +74,7 @@ def deploy():
     Deploys the django project.
     """
     run('mkproject %s' % PROJECT_ID)
+    run('mkdir %s' % env.static_dir)
     with cd(env.current_project_dir):
         run('git init')
         run('git pull https://edhedges@bitbucket.org/edhedges/%s.git master' % PROJECT_ID)
@@ -81,7 +82,7 @@ def deploy():
         run('python2.7 manage.py new_secret')
         run('python2.7 manage.py syncdb')
         run('python2.7 manage.py migrate')
-        run('mv static/* %s' % env.static_dir)
+        run('python2.7 manage.py collectstatic')
     replace_httpdconf()
     with cd(env.apache_bin):
         run('./restart')
@@ -101,7 +102,6 @@ def destroy_project():
     run('rm -rf %s' % env.current_project_dir)
     run('rm -rf %s' % env.specific_virtualenv_dir)
     run('rm -rf %s' % env.static_dir)
-    run('mkdir %s' % env.static_dir)
  
 def rebuild_all():
     """
