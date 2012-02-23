@@ -83,6 +83,8 @@ def deploy():
         run('python2.7 manage.py syncdb')
         run('python2.7 manage.py migrate')
         run('python2.7 manage.py collectstatic')
+        with cd(env.static_dir):
+            run('rm -rf admin')
     replace_httpdconf()
     with cd(env.apache_bin):
         run('./restart')

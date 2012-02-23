@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+<!-- Don't forget about extra_styles and extra_footer -->
+{% block extra_styles %}
+<!-- App specific styles -->
+	<link rel="stylesheet" href="{{ STATIC_URL }}sampleapp/css/sampleapp.css">
+{% endblock extra_styles %}
+
+{% block content %}
+	<!-- Content specific to the app home goes here -->
+	<p>Welcome to eds-djangoplate! This is a sample application to use as a reference. Go do some coding!</p>
+{% endblock content %}
+
+{% block extra_scripts %}
+	<script type="text/javascript" src="{{ STATIC_URL }}sampleapp/js/sampleapp.js"></script>
+{% endblock extra_scripts %}

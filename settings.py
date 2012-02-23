@@ -6,6 +6,7 @@ This gets the host whether it is webfaction or just local development.
 import socket, os, sys
 
 from conf.project import *
+import conf.paths
 
 def contains(str, substr):
     if str.find(substr) != -1:
@@ -43,9 +44,6 @@ if LIVEHOST:
     EMAIL_HOST = 'smtp.webfaction.com'
     EMAIL_HOST_USER = USER_NAME
     EMAIL_HOST_PASSWORD = EMAIL_PASSWORD
-
-    #Development url conf
-    ROOT_URLCONF = 'urls'
 
     # Absolute filesystem path to the directory that will hold user-uploaded files.
     # Example: "/home/media/media.lawrence.com/media/"
@@ -101,9 +99,6 @@ if not LIVEHOST:
     #Local email settings for local python smtp dummy server
     EMAIL_HOST = 'localhost'
     EMAIL_PORT = 1025
-
-    #Development url conf
-    ROOT_URLCONF = 'urls'
 
     #Email configuration
     #If you use this type this in terminal - python -m smtpd -n -c DebuggingServer localhost:1025
@@ -201,6 +196,9 @@ TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates/'),
 )
 
+#urls.py
+ROOT_URLCONF = 'urls'
+
 #Apps installed onto this project
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -208,7 +206,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.staticfiles',
     'django.contrib.messages',
-    'django.contrib.admin',
+
+    #Uncomment the next line to activate built in django admin
+    #'django.contrib.admin',
     
     #Dependency apps
     'south',
@@ -216,7 +216,7 @@ INSTALLED_APPS = (
 
     #Sample apps included
     'sample_one',
-    'sample_two',
+    #This app adds the new_secret command to manage.py to create a new secret key
     'startup',
 
     #Add more apps when you write them!

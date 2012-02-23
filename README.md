@@ -1,72 +1,41 @@
 Eddie Hedges' Django Boilerplate
 =========
 
-This boilerplate assumes webfaction host and an install of python2.7 and mod_wsgi3.3/apache2
+This is my personalized django project boilerplate. I made it to make starting a new project quick and efficient. 
 
-This boilerplate was made so that I can create a development standard for myself when using django. 
-
-I tried to keep it simple while also having the flexibility that will allow me to locally develop and quickly turn around and push the project to production.
-
-In my local development I use django along with pip, virtualenv, virtualenvwrapper, and any other python modules I see necessary.
-
-To make my development even better I will write a .bashrc script that does the following things:
-
-  - Create and activate a virtualenv and a related project 
-  - Grab my boilerplate and use it as the project start
-  - Remove the README.md file
-  - Install the requirements of the project such as django, PIL, etc.
-  - Create a new secret key for the project
-  - Run syncdb and runserver
+I use virtualenv with virtualenvwrapper for local development and have written a short bash script that starts a project for me to develop locally in one simple command: `mkdjangoproj myproject`.
 
 Here is the script:
-
+		
 	mkdjangoproj () {
-	mkproject --no-site-packages --prompt=$1: $1 &&
-	git init &&
-	git pull git@github.com:edhedges/eds-djangoplate.git master &&
-	rm README.md &&
-	pip install -r requirements.txt &&
-	chmod +x manage.py
-	./manage.py new_secret &&
-	./manage.py syncdb &&
-    ./manage.py migrate &&
-	./manage.py runserver
+		mkproject --no-site-packages --prompt=$1: $1 &&
+		git init &&
+		git pull git@github.com:edhedges/eds-djangoplate.git master &&
+		rm README.md &&
+		pip install -r requirements.txt &&
+		chmod +x manage.py
+		./manage.py new_secret &&
+		./manage.py syncdb &&
+		./manage.py runserver
 	}
 
-I will name this script mkdjangoproj and by typing:
-    
-    mkdjangoproj project_name
+The boilerplate comes with a sample app that can be renamed, modified, or deleted it is basically only there for reference.
 
-It will create a new django project with my boilerplate named project_name.
+So once I run the mkproject function from my bash it does a number of things:
 
-This django boilerplate comes with two sample apps which will be included in the INSTALLED_APPS settings. If you would change their directory names make sure to change the names elsewhere like their urls, the project urls, the app views, and the project settings.
+	- Creates a virtualenv and project with the same name to be pythonic!
+	- Initializes the project as an empty git repo and pulls the boilerplate from github.
+	- Removes the README.md file.
+	- Installs django, south, and fabric.
+	- Makes manage.py executable and creates a new secret key, runs syncdb, and starts the local dev server.
 
-I got my inspiration for this boilerplate from [Jordan Orellis Django Skeleton](https://github.com/jordanorelli/Django-Skeleton)
 
-If you aren't familiar with virtualenv/virtualenvwrapper you need to know that if you want to install packages into your virtualenv you need to open a new terminal tab/window and type:
+Here is a list of the bare minimum files that NEED edited before deployment besides normal development: 
 	
-	workon myvirtualenv
-
-This will then allow you to type:
-
-	pip install whateverpackagesyouwant
-
-Files that NEED edited before deployment aside from what is developed:
 	- settings.py
-	- requirement.txt (to add packages)
 	- project.py
 	- httpd-vhosts.conf
 	- fabfile.py
-	- httpd.conf (BE CAREFUL AND SMART)
+	- httpd.conf
 
-Deployment Instructions:
-
-	- Run mkdjangoproj project_name
-	- Write whatever code/apps you want locally
-	- Change whatever settings you need to including installed apps and changing database settings for production
-	- If you need packages installed on live server make sure they are in requirements.txt and installed_apps in django
-	- In project.py change PROJECT_ID = 'project' to be PROJECT_ID = 'project_name'
-	- Edit the httpd.conf and replace the live server http.conf to include our httpd-vhosts.conf in the conf directory of the project
-	- Make other necessary changes to httpd.conf on live server
-	- profit???
-	
+For deployment, redeployment, and more see fabfile.py and read code.
