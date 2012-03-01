@@ -209,7 +209,7 @@ INSTALLED_APPS = (
     'fabric',
 
     #Sample apps included
-    'sample_one',
+    'sampleapp',
     #This app adds the new_secret command to manage.py to create a new secret key
     'startup',
 
