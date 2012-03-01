@@ -96,14 +96,9 @@ if not LIVEHOST:
         }
     }
 
-    #Local email settings for local python smtp dummy server
+    #If you use this type this in terminal - python -m smtpd -n -c DebuggingServer localhost:1025
     EMAIL_HOST = 'localhost'
     EMAIL_PORT = 1025
-
-    #Email configuration
-    #If you use this type this in terminal - python -m smtpd -n -c DebuggingServer localhost:1025
-    #EMAIL_HOST = 'localhost'
-    #EMAIL_PORT = 1025
 
     # Absolute filesystem path to the directory that will hold user-uploaded files.
     # Example: "/home/media/media.lawrence.com/media/"

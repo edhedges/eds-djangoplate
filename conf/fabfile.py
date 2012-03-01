@@ -82,12 +82,8 @@ def deploy():
         run('python2.7 manage.py new_secret')
         run('python2.7 manage.py syncdb')
         run('python2.7 manage.py migrate')
-        run('python2.7 manage.py collectstatic')
-        with cd(env.static_dir):
-            run('rm -rf admin')
+        run('mv static/* %s' % env.static_dir)
     replace_httpdconf()
-    with cd(env.apache_bin):
-        run('./restart')
    
 def destroy_all():
     """
