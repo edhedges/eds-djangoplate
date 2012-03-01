@@ -69,13 +69,12 @@ if LIVEHOST:
         # Put strings here, like "/home/html/static" or "C:/www/django/static".
         # Always use forward slashes, even on Windows.
         # Don't forget to use absolute paths, not relative paths.
-        '/home/edhedges/webapps/static/%s/' % PROJECT_ID,
     )
 
     # URL prefix for admin static files -- CSS, JavaScript and images.
     # Make sure to use a trailing slash.
     # Examples: "http://foo.com/static/admin/", "/static/admin/".
-    ADMIN_MEDIA_PREFIX = 'http://www.edhedges.com/static/%s/admin/' % PROJECT_ID
+    ADMIN_MEDIA_PREFIX = STATIC_URL + 'grappelli/'
 
 """
 Settings for development
@@ -130,7 +129,7 @@ if not LIVEHOST:
     # URL prefix for admin static files -- CSS, JavaScript and images.
     # Make sure to use a trailing slash.
     # Examples: "http://foo.com/static/admin/", "/static/admin/".
-    ADMIN_MEDIA_PREFIX = '/static/admin/'
+    ADMIN_MEDIA_PREFIX = STATIC_URL + 'grappelli/'
 
 """
 My common settings below
@@ -201,9 +200,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.staticfiles',
     'django.contrib.messages',
-
+    'grappelli',
     #Uncomment the next line to activate built in django admin
-    #'django.contrib.admin',
+    'django.contrib.admin',
     
     #Dependency apps
     'south',

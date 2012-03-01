@@ -83,6 +83,8 @@ def deploy():
         run('python2.7 manage.py syncdb')
         run('python2.7 manage.py migrate')
         run('mv static/* %s' % env.static_dir)
+        run('rm -rf static')
+        run('python2.7 manage.py collectstatic')
     replace_httpdconf()
    
 def destroy_all():
