@@ -44,6 +44,8 @@ if LIVEHOST:
     EMAIL_HOST = 'smtp.webfaction.com'
     EMAIL_HOST_USER = USER_NAME
     EMAIL_HOST_PASSWORD = EMAIL_PASSWORD
+    DEFAULT_FROM_EMAIL = USER_NAME + '@edhedges.com'
+    SERVER_EMAIL = USER_NAME + '@edhedges.com'
 
     # Absolute filesystem path to the directory that will hold user-uploaded files.
     # Example: "/home/media/media.lawrence.com/media/"
