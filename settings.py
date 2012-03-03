@@ -203,7 +203,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.messages',
     'grappelli',
-    #Uncomment the next line to activate built in django admin
     'django.contrib.admin',
     
     #Dependency apps
