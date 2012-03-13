@@ -1,7 +1,17 @@
 Eddie Hedges' Django Boilerplate
 =========
 
-This is my personalized django project boilerplate. I made it to make starting a new project quick and efficient. 
+This is my personalized django project boilerplate. I made it to make starting a new project quick and efficient.
+
+I would like to site my sources and inspiration for the project below: 
+    
+* [kstateome](https://github.com/kstateome)
+* [gpennington](https://github.com/gpennington)
+* [dstegelman](https://github.com/dstegelman)
+* [jonfaustman](https://github.com/jonfaustman)
+* [jordanorelli](https://github.com/jordanorelli)
+
+Without the above sources my boilerplate would not have been possible.
 
 I use virtualenv with virtualenvwrapper for local development and have written a short bash script that starts a project for me to develop locally in one simple command: `mkdjangoproj myproject`.
 
