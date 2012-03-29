@@ -77,7 +77,7 @@ def deploy():
     run('mkdir %s' % env.static_dir)
     with cd(env.current_project_dir):
         run('git init')
-        run('git pull https://edhedges@bitbucket.org/edhedges/%s.git master' % PROJECT_ID)
+        run('git pull https://edhedges@github.com/edhedges/%s.git master' % PROJECT_ID)
         run('pip-2.7 install -r conf/requirements.txt')
         run('python2.7 manage.py new_secret')
         run('python2.7 manage.py syncdb')
